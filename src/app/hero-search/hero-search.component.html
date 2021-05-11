@@ -1,0 +1,27 @@
+<div id="search-component">
+    <label for="search-box">Hero search </label>
+    <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+
+    <p-table *ngIf="heroes$ | async as heroes" [value]="heroes">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-hero>
+            <tr>
+                <td>{{hero.id}}</td>
+                <td>{{hero.name}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+
+    <!-- <ul class="search-result">
+         <li *ngFor="let hero of heroes$ | async" >
+            <a routerLink="/detail/{{hero.id}}">
+                {{hero.name}}
+            </a>
+        </li> 
+    </ul> -->
+</div>
